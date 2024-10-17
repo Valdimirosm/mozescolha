@@ -6,7 +6,54 @@
     <title>Document</title>
 </head>
 <body>
-    <div><input type="number" name="numero" id="portugues"> nota de portugues</div>
+    <div class="container">
+        <h1>Escolha de Grupo de Disciplinas</h1>
+        <div class="form-group">
+            <label for="portugues">Nota em Português:</label>
+            <input type="number" id="portugues" min="0" max="20" placeholder="Digite a nota de 0 a 20" required>
+        </div>
+        <div class="form-group">
+            <label for="ingles">Nota em Inglês:</label>
+            <input type="number" id="ingles" min="0" max="20" placeholder="Digite a nota de 0 a 20" required>
+        </div>
+        <div class="form-group">
+            <label for="matematica">Nota em Matemática:</label>
+            <input type="number" id="matematica" min="0" max="20" placeholder="Digite a nota de 0 a 20" required>
+        </div>
+        <div class="form-group">
+            <label for="fisica">Nota em Física:</label>
+            <input type="number" id="fisica" min="0" max="20" placeholder="Digite a nota de 0 a 20" required>
+        </div>
+        <div class="form-group">
+            <label for="quimica">Nota em Química:</label>
+            <input type="number" id="quimica" min="0" max="20" placeholder="Digite a nota de 0 a 20" required>
+        </div>
+        <div class="form-group">
+            <label for="geografia">Nota em Geografia:</label>
+            <input type="number" id="geografia" min="0" max="20" placeholder="Digite a nota de 0 a 20" required>
+        </div>
+        <div class="form-group">
+            <label for="historia">Nota em História:</label>
+            <input type="number" id="historia" min="0" max="20" placeholder="Digite a nota de 0 a 20" required>
+        </div>
+        <div class="form-group">
+            <label for="visual">Nota em E.visual:</label>
+            <input type="number" id="visual" min="0" max="20" placeholder="Digite a nota de 0 a 20" required>
+        </div>
+    
+        <div class="form-group">
+            <label for="biologia">Nota em biologia:</label>
+            <input type="number" id="biologia" min="0" max="20" placeholder="Digite a nota de 0 a 20" required>
+        </div>
+
+
+        <button class="btn" onclick="calcularGrupo()">Calcular Grupo</button>
+    
+        <div class="result" id="resultado"></div>
+    </div>
+
+
+
     <script>
         // Função para calcular a média
         function calcularMedia(arr) {
