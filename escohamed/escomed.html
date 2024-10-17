@@ -113,15 +113,15 @@
     <script>
         function calcularGrupo() {
             // Função para calcular a média
-            function calcularMedia(valores) {
-                const soma = valores.reduce((a, b) => a + b, 0);
-                return soma / valores.length;
+            function calcularMedia(arr) {
+                const soma = arr.reduce((a, b) => a + b , 0);
+                return soma / arr.length;
             }
     
             // Função para calcular o desvio padrão
             function calcularDesvioPadrao(valores, media) {
-                const soma = valores.reduce((a, b) => a + Math.pow(b - media, 2), 0);
-                return Math.sqrt(soma / valores.length);
+                const soma = arr.reduce((a, b) => a + Math.pow(b - media, 2), 0);
+                return Math.sqrt(soma / arr.length);
             }
     
             // Função para calcular o coeficiente de variação (CV)
@@ -149,7 +149,7 @@
             // Agrupando as notas de Humanas e Exatas
             let notasHumanas = [portugues, ingles, geografia, historia];
             let notasExatas = [matematica, fisica, quimica, biologia];
-            let notasgrupo = [matematica, fisica, quimica, visual];
+            let notasExata = [matematica, fisica, quimica, visual];
 
             // Calculando médias e desvios padrões
             let mediaHumanas = calcularMedia(notasHumanas);
