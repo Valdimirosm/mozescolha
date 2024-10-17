@@ -63,7 +63,72 @@
     </style>
 </head>
 <body>
-    <h1>bem vindo ao site prenche os espacos</h1>
+    <h1>bem vindo
+        <!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escolha de Grupo de Disciplinas - CV Pearson</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e7f4e4;
+            color: #2d6a4f;
+            border: 2px solid #2d6a4f;
+            border-radius: 4px;
+            text-align: center;
+        }
+        .btn {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
     <div class="container">
         <h1>Escolha de Grupo de Disciplinas</h1>
         <div class="form-group">
@@ -95,95 +160,87 @@
             <input type="number" id="historia" min="0" max="20" placeholder="Digite a nota de 0 a 20" required>
         </div>
         <div class="form-group">
-            <label for="visual">Nota em E.visual:</label>
+            <label for="visual">Nota em Educação Visual:</label>
             <input type="number" id="visual" min="0" max="20" placeholder="Digite a nota de 0 a 20" required>
         </div>
-    
         <div class="form-group">
-            <label for="biologia">Nota em biologia:</label>
+            <label for="biologia">Nota em Biologia:</label>
             <input type="number" id="biologia" min="0" max="20" placeholder="Digite a nota de 0 a 20" required>
         </div>
-
-
         <button class="btn" onclick="calcularGrupo()">Calcular Grupo</button>
-    
         <div class="result" id="resultado"></div>
     </div>
-    
     <script>
         function calcularGrupo() {
             // Função para calcular a média
             function calcularMedia(arr) {
-                const soma = arr.reduce((a, b) => a + b , 0);
+                const soma = arr.reduce((a, b) => a + b, 0);
                 return soma / arr.length;
             }
-    
+
             // Função para calcular o desvio padrão
             function calcularDesvioPadrao(arr) {
                 const media = calcularMedia(arr);
                 const soma = arr.reduce((a, b) => a + Math.pow(b - media, 2), 0);
                 return Math.sqrt(soma / arr.length);
             }
-    
+
             // Função para calcular o coeficiente de variação (CV)
             function calcularCV(arr) {
                 const media = calcularMedia(arr);
                 const desvioPadrao = calcularDesvioPadrao(arr);
                 return (desvioPadrao / media) * 100;
             }
-    
+
             // Capturando as notas inseridas pelo usuário
             let portugues = parseFloat(document.getElementById('portugues').value);
             let ingles = parseFloat(document.getElementById('ingles').value);
             let matematica = parseFloat(document.getElementById('matematica').value);
             let fisica = parseFloat(document.getElementById('fisica').value);
             let quimica = parseFloat(document.getElementById('quimica').value);
-            let geografia = parseFloat(document.getElementById('geografia').arr);
+            let geografia = parseFloat(document.getElementById('geografia').value);
             let historia = parseFloat(document.getElementById('historia').value);
             let visual = parseFloat(document.getElementById('visual').value);
             let biologia = parseFloat(document.getElementById('biologia').value);
-    
+
             // Verificação para garantir que todas as notas foram inseridas
             if (isNaN(portugues) || isNaN(ingles) || isNaN(matematica) || isNaN(fisica) || isNaN(quimica) || isNaN(geografia) || isNaN(historia) || isNaN(biologia) || isNaN(visual)) {
                 document.getElementById('resultado').innerText = "Por favor, preencha todas as notas.";
                 return;
             }
-    
+
             // Agrupando as notas de Humanas e Exatas
             let notasHumanas = [portugues, ingles, geografia, historia];
             let notasExatas = [matematica, fisica, quimica, biologia];
-            let notasExata = [matematica, fisica, quimica, visual];
+            let notasGrupoC = [matematica, fisica, quimica, visual];
 
             // Calculando médias e desvios padrões
             let mediaHumanas = calcularMedia(notasHumanas);
-            let desvioPadraoHumanas = calcularDesvioPadrao(notasHumanas, mediaHumanas);
-            let cvHumanas = calcularCV(desvioPadraoHumanas, mediaHumanas);
-    
-            let mediaExatas = calcularMedia(notasExatas);
-            let desvioPadraoExatas = calcularDesvioPadrao(notasExatas, mediaExatas);
-            let cvExatas = calcularCV(desvioPadraoExatas, mediaExatas);
+            let desvioPadraoHumanas = calcularDesvioPadrao(notasHumanas);
+            let cvHumanas = calcularCV(notasHumanas);
 
-            let mediaExata = calcularMedia(notasExata);
-            let desvioPadraoExata = calcularDesvioPadrao(notasExata, mediaExata);
-            let cvExata = calcularCV(desvioPadraoExata, mediaExata);
+            let mediaExatas = calcularMedia(notasExatas);
+            let desvioPadraoExatas = calcularDesvioPadrao(notasExatas);
+            let cvExatas = calcularCV(notasExatas);
+
+            let mediaGrupoC = calcularMedia(notasGrupoC);
+            let desvioPadraoGrupoC = calcularDesvioPadrao(notasGrupoC);
+            let cvGrupoC = calcularCV(notasGrupoC);
 
             let grupo;
-    
-            
-    
+
             // Decisão com base no coeficiente de variação
-            if (cvHumanas < cvExatas) {
+            if (cvHumanas < cvExatas && cvHumanas < cvGrupoC) {
                 grupo = "Grupo A (Português, Inglês, Geografia, História)";
-            } else if (cvExatas < cvHumanas) {
+            } else if (cvExatas < cvHumanas && cvExatas < cvGrupoC) {
                 grupo = "Grupo B (Matemática, Física, Química, Biologia)";
             } else {
-                grupo = "Grupo C (Matemática, Física, Química, visual)";
+                grupo = "Grupo C (Matemática, Física, Química, Educação Visual)";
             }
-    
+
             // Exibindo o resultado
-            document.getElementById('resultado').innerText = `Recomendação: ${grupo} \nCV Humanas: ${cvHumanas.toFixed(2)}% \nCV Exatas: ${cvExatas.toFixed(2)}%  Exata : ${cvExata.toFixed(2)}% \nCV` ;
+            document.getElementById('resultado').innerText = `Recomendação: ${grupo} \nCV Humanas: ${cvHumanas.toFixed(2)}% \nCV Exatas: ${cvExatas.toFixed(2)}% \nCV Grupo C: ${cvGrupoC.toFixed(2)}%`;
         }
-    </script>  
-    
+    </script>
 </body>
 </html>

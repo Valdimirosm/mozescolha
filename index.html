@@ -20,25 +20,70 @@
     </nav>
 <h1>Meu Primeiro Site </h1>
     
-<h2>Bem vindo a minha pagina oficial de escolha do grupo</h2>
+function calcularGrupo() {
+    // Função para calcular a média
+    function calcularMedia(valores) {
+        const soma = valores.reduce((a, b) => a + b, 0);
+        return soma / valores.length;
+    }
 
-<h3> capitulo 1:</h3> <hr>
-<p><strong>Lorem</strong> <i>
-    ipsum dolor sit, amet consectetur adipisicing elit. <br>
-         Expedita harum sint quibusdam mollitia accusantium reprehenderitbr <br>
-    
-          dignissimos consectetur temporibus ducimus, <br>
-           tempora commodi aut blanditiis porro quo modi, <br>
-            ipsum amet nulla nesciunt! <br></p>
-</i>
-<p><strong>Lorem</strong> ipsum dolor sit amet consectetur adipisicing elit. <br> 
-    Quaerat nobis hic voluptatem nisi dolorum? Cum, excepturi voluptas. <br>
-    Explicabo, odit tenetur, blanditiis placeat iste, <br>
-     nostrum corporis voluptates totam maxime aliquid dicta! <br></p>
+    // Função para calcular o desvio padrão
+    function calcularDesvioPadrao(valores, media) {
+        const soma = valores.reduce((a, b) => a + Math.pow(b - media, 2), 0);
+        return Math.sqrt(soma / valores.length);
+    }
 
-<p>X <sup>2</sup>-3X + 2 = 0 </p>
-<p>ACESSAR O <a href="imagem/" target="_blank">LINK PARA VER A FOTO</a></p>
-<p><img src="imagem/valdo1.png" alt="desenvovedor do site" width="100px"></p>
-<img src="imagem/CASA.png" alt="casa que mostra associacao em paralela">
-</body>
-</html>
+    // Função para calcular o coeficiente de variação (CV)
+    function calcularCV(desvioPadrao, media) {
+        return (desvioPadrao / media) * 100;
+    }
+
+    // Capturando as notas inseridas pelo usuário
+    let portugues = parseFloat(document.getElementById('portugues').value);
+    let ingles = parseFloat(document.getElementById('ingles').value);
+    let matematica = parseFloat(document.getElementById('matematica').value);
+    let fisica = parseFloat(document.getElementById('fisica').value);
+    let quimica = parseFloat(document.getElementById('quimica').value);
+    let geografia = parseFloat(document.getElementById('geografia').value);
+    let historia = parseFloat(document.getElementById('historia').value);
+    let biologia = parseFloat(document.getElementById('biologia').value); // Nova linha
+
+    // Verificação para garantir que todas as notas foram inseridas
+    if (isNaN(portugues) || isNaN(ingles) || isNaN(matematica) || isNaN(fisica) || isNaN(quimica) || isNaN(geografia) || isNaN(historia) || isNaN(biologia)) { // Nova condição
+        document.getElementById('resultado').innerText = "Por favor, preencha todas as notas.";
+        return;
+    }
+
+    // Agrupando as notas de Humanas e Exatas
+    let notasHumanas = [portugues, ingles, geografia, historia];
+    let notasExatas = [matematica, fisica, quimica];
+    let notasGrupoC = [matematica, fisica, quimica, biologia]; // Nova linha
+
+    // Calculando médias e desvios padrões
+    let mediaHumanas = calcularMedia(notasHumanas);
+    let desvioPadraoHumanas = calcularDesvioPadrao(notasHumanas, mediaHumanas);
+    let cvHumanas = calcularCV(desvioPadraoHumanas, mediaHumanas);
+
+    let mediaExatas = calcularMedia(notasExatas);
+    let desvioPadraoExatas = calcularDesvioPadrao(notasExatas, mediaExatas);
+    let cvExatas = calcularCV(desvioPadraoExatas, mediaExatas);
+
+    let mediaGrupoC = calcularMedia(notasGrupoC); // Nova linha
+    let desvioPadraoGrupoC = calcularDesvioPadrao(notasGrupoC, mediaGrupoC); // Nova linha
+    let cvGrupoC = calcularCV(desvioPadraoGrupoC, mediaGrupoC); // Nova linha
+
+    let grupo;
+
+    // Decisão com base no coeficiente de variação
+    if (cvHumanas < cvExatas && cvHumanas < cvGrupoC) {
+        grupo = "Grupo A (Português, Inglês, Geografia, História)";
+    } else if (cvExatas < cvHumanas && cvExatas < cvGrupoC) {
+        grupo = "Grupo B (Matemática, Física, Química)";
+    } else {
+        grupo = "Grupo C (Matemática, Física, Química, Biologia)";
+    }
+
+    // Exibindo o resultado
+    document.getElementById('resultado').innerText = `Recomendação: ${grupo} \nCV Humanas: ${cvHumanas.toFixed(2)}% \nCV Exatas: ${cvExatas.toFixed(2)}% \nCV Grupo C: ${cvGrupoC.toFixed(2)}%`; // Nova linha
+}
+
