@@ -119,13 +119,16 @@
             }
     
             // Função para calcular o desvio padrão
-            function calcularDesvioPadrao(valores, media) {
+            function calcularDesvioPadrao(arr) {
+                const media = calcularMedia(arr);
                 const soma = arr.reduce((a, b) => a + Math.pow(b - media, 2), 0);
                 return Math.sqrt(soma / arr.length);
             }
     
             // Função para calcular o coeficiente de variação (CV)
-            function calcularCV(desvioPadrao, media) {
+            function calcularCV(arr) {
+                const media = calcularMedia(arr);
+                const desvioPadrao = calcularDesvioPadrao(arr);
                 return (desvioPadrao / media) * 100;
             }
     
