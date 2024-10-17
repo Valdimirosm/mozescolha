@@ -133,15 +133,15 @@
             }
     
             // Capturando as notas inseridas pelo usuário
-            let portugues = parseFloat(document.getElementById('portugues').arr);
-            let ingles = parseFloat(document.getElementById('ingles').arr);
-            let matematica = parseFloat(document.getElementById('matematica').arr);
-            let fisica = parseFloat(document.getElementById('fisica').arr);
-            let quimica = parseFloat(document.getElementById('quimica').arr);
+            let portugues = parseFloat(document.getElementById('portugues').value);
+            let ingles = parseFloat(document.getElementById('ingles').value);
+            let matematica = parseFloat(document.getElementById('matematica').value);
+            let fisica = parseFloat(document.getElementById('fisica').value);
+            let quimica = parseFloat(document.getElementById('quimica').value);
             let geografia = parseFloat(document.getElementById('geografia').arr);
-            let historia = parseFloat(document.getElementById('historia').arr);
-            let visual = parseFloat(document.getElementById('visual').arr);
-            let biologia = parseFloat(document.getElementById('biologia').arr);
+            let historia = parseFloat(document.getElementById('historia').value);
+            let visual = parseFloat(document.getElementById('visual').value);
+            let biologia = parseFloat(document.getElementById('biologia').value);
     
             // Verificação para garantir que todas as notas foram inseridas
             if (isNaN(portugues) || isNaN(ingles) || isNaN(matematica) || isNaN(fisica) || isNaN(quimica) || isNaN(geografia) || isNaN(historia) || isNaN(biologia) || isNaN(visual)) {
