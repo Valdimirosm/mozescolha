@@ -133,18 +133,20 @@
         }
         
         // Dados dos três grupos
-        const grupo1 = [10, 12, 14, 16, 18];
-        const grupo2 = [20, 22, 24, 26, 28];
-        const grupo3 = [30, 32, 34, 36, 38];
+        const grupo1 = [portugues, ingles, historia, geografia];
+        const grupo2 = [fisica, biologia, quimica, matematica];
+        const grupo3 = [fisica, quimica, matematica, visual];
 
-         // Capturando as notas inseridas pelo usuário
-         let portugues = parseFloat(document.getElementById('portugues').value);
-        let ingles = parseFloat(document.getElementById('ingles').value);
-        let matematica = parseFloat(document.getElementById('matematica').value);
-        let fisica = parseFloat(document.getElementById('fisica').value);
-        let quimica = parseFloat(document.getElementById('quimica').value);
-        let geografia = parseFloat(document.getElementById('geografia').value);
-        let historia = parseFloat(document.getElementById('historia').value);
+        // Capturando as notas inseridas pelo usuário
+        let portugues = parseFloat(document.getElementById('portugues').value);
+            let ingles = parseFloat(document.getElementById('ingles').value);
+            let matematica = parseFloat(document.getElementById('matematica').value);
+            let fisica = parseFloat(document.getElementById('fisica').value);
+            let quimica = parseFloat(document.getElementById('quimica').value);
+            let geografia = parseFloat(document.getElementById('geografia').arr);
+            let historia = parseFloat(document.getElementById('historia').value);
+            let visual = parseFloat(document.getElementById('visual').value);
+            let biologia = parseFloat(document.getElementById('biologia').value);
         
         // Calculando o CV para cada grupo
         const cvGrupo1 = calcularCV(grupo1);
