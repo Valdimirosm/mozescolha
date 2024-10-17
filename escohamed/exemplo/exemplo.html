@@ -136,6 +136,15 @@
         const grupo1 = [10, 12, 14, 16, 18];
         const grupo2 = [20, 22, 24, 26, 28];
         const grupo3 = [30, 32, 34, 36, 38];
+
+         // Capturando as notas inseridas pelo usuário
+         let portugues = parseFloat(document.getElementById('portugues').value);
+        let ingles = parseFloat(document.getElementById('ingles').value);
+        let matematica = parseFloat(document.getElementById('matematica').value);
+        let fisica = parseFloat(document.getElementById('fisica').value);
+        let quimica = parseFloat(document.getElementById('quimica').value);
+        let geografia = parseFloat(document.getElementById('geografia').value);
+        let historia = parseFloat(document.getElementById('historia').value);
         
         // Calculando o CV para cada grupo
         const cvGrupo1 = calcularCV(grupo1);
