@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Função para calcular a média
+        function calcularMedia(arr) {
+        const soma = arr.reduce((a, b) => a + b, 0);
+        return soma / arr.length;
+        }
+        
+        // Função para calcular o desvio padrão
+        function calcularDesvioPadrao(arr) {
+        const media = calcularMedia(arr);
+        const somaQuadrados = arr.reduce((a, b) => a + Math.pow(b - media, 2), 0);
+        return Math.sqrt(somaQuadrados / arr.length);
+        }
+        
+        // Função para calcular o coeficiente de variação
+        function calcularCV(arr) {
+        const media = calcularMedia(arr);
+        const desvioPadrao = calcularDesvioPadrao(arr);
+        return (desvioPadrao / media) * 100;
+        }
+        
+        // Dados dos três grupos
+        const grupo1 = [10, 12, 14, 16, 18];
+        const grupo2 = [20, 22, 24, 26, 28];
+        const grupo3 = [30, 32, 34, 36, 38];
+        
+        // Calculando o CV para cada grupo
+        const cvGrupo1 = calcularCV(grupo1);
+        const cvGrupo2 = calcularCV(grupo2);
+        const cvGrupo3 = calcularCV(grupo3);
+        
+        console.log(`CV do Grupo 1: ${cvGrupo1.toFixed(2)}%`);
+        console.log(`CV do Grupo 2: ${cvGrupo2.toFixed(2)}%`);
+        console.log(`CV do Grupo 3: ${cvGrupo3.toFixed(2)}%`);
+    </script>
+
+    
+</body>
+</html>
